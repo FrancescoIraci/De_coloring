@@ -1,0 +1,17 @@
+{
+    "description": "DM(t)-correction test: per-backend EFAC+EQUAD + ECORR(lofar) + red noise (30) + DM GP (100)",
+    "white_noise": {
+        "sample": true,
+        "tnequad": true,
+        "ecorr": true,
+        "ecorr_selection": "lofar",
+        "noisedict": null
+    },
+    "timing_model": {"svd": true},
+    "gps": {
+        "rednoise": {"basis": "achromatic", "psd": "powerlaw", "components": 30},
+        "dmgp":     {"basis": "dm",         "psd": "powerlaw", "components": 100}
+    },
+    "deterministic": {"solar_wind": false},
+    "priors": {}
+}

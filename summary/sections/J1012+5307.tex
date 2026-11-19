@@ -1,0 +1,72 @@
+\section{J1012+5307}
+\label{sec:J1012}
+
+\subsection{Epoch-wise DM(t) correction}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../J1012+5307/dm_correction_out/dm_timeseries.png}
+\end{center}
+
+\subsection{Effect on residuals}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{../J1012+5307/dm_correction_out/residuals_pre_post.png}
+\end{center}
+
+\subsection{Noise-model comparisons}
+
+\colorkeytable{J1012+5307}
+
+\cmpjoint{../plot_output/compare/J1012+5307.pdf}{highfreq\_corrected: rnonly vs dmrn}
+\cmpjoint{../plot_output/compare/J1012+5307_lofaronly_corrected_rnonly_vs_dmrn.pdf}{lofaronly\_corrected: rnonly vs dmrn}
+\cmpjoint{../plot_output/compare/J1012+5307_corrected_dmrn_3way.pdf}{corrected, dmrn: highfreq vs lofaronly vs combined}
+\cmpone{../plot_output/compare/J1012+5307_rnonly_combined_vs_highfreq.pdf}{corrected, rnonly: combined vs highfreq (lofaronly omitted --- see caveat below)}
+\cmpjoint{../plot_output/compare/J1012+5307_uncorrected_vs_corrected.pdf}{combined: uncorrected vs corrected (dmrn)}
+\cmpjoint{../plot_output/compare/J1012+5307_lofaronly_corr_vs_uncorr_dmrn.pdf}{lofaronly: corrected vs uncorrected (DM+RN)}
+\cmpone{../plot_output/compare/J1012+5307_lofaronly_corr_vs_uncorr_rnonly.pdf}{lofaronly: corrected vs uncorrected (RN only)}
+\cmpjoint{../plot_output/compare/J1012+5307_rnonly-corrected_vs_dmrn-uncorrected.pdf}{combined\_corrected:rnonly vs combined\_uncorrected:dmrn}
+\cmpjoint{../plot_output/compare/J1012+5307_lofaronly_uncorrected_rnonly_vs_dmrn.pdf}{lofaronly\_uncorrected: rnonly vs dmrn}
+\cmpone{../plot_output/compare/J1012+5307_rnonly_highfreqU_vs_lofaronlyU_vs_combinedU.pdf}{RN only, uncorrected: highfreq vs lofaronly vs combined}
+
+\subsection{DM(t): GP reconstruction vs epoch-wise}
+\cmpwide{../plot_output/compare/J1012+5307_dm_timeseries_ew_vs_gp.pdf}{combined\_corrected:dmrn DM GP vs the original epoch-wise curve}
+
+\subsection{Interpretation}
+
+J1012+5307 is the known difficult case for this sampler (flagged in the
+jexplore-noise devlog as multimodal, needing a denser temperature ladder) ---
+its \emph{combined\_corrected:dmrn} run finished with only 23 total epochs,
+so results here should be read with that caveat in mind. With that said, the
+red noise found in \emph{combined} is systematically offset in both $\gamma$
+and amplitude from \emph{highfreq} and from \emph{combined\_uncorrected:dmrn}'s
+achromatic channel, with no overlap in any of the three comparisons. This is
+the clearest non-coincidence of the three pulsars: whatever the correction is
+leaving behind, it is enough to pull the red-noise fit to a different
+solution whenever LOFAR is in the dataset without an explicit DM GP to
+absorb it.
+
+Splitting the corrected dataset by station set under \emph{dmrn} shows
+\emph{combined} is not a simple blend of its two halves: all three settle
+on their own distinct, mutually exclusive red-noise peak (lowest
+$\gamma$/amplitude for \emph{highfreq}, highest for \emph{lofaronly},
+\emph{combined} in between), and likewise for the DM GP --- \emph{lofaronly}'s
+own DM GP rails to near-zero amplitude on its own (nothing obviously left
+for it to find, consistent with the degeneracy test below), yet once
+\emph{lofaronly} is merged into \emph{combined}, a modest but
+well-determined DM GP peak emerges that neither sub-component shows alone.
+(The equivalent \emph{rnonly} three-way plot is omitted here: J1012+5307's
+\emph{combined\_corrected:rnonly} needed an unusually deep burn-in
+[19 epochs, reviewed directly from its trace], which would leave
+\emph{lofaronly\_corrected:rnonly} --- only 20 epochs total --- with just
+one post-burn epoch of samples; the two-way \emph{combined} vs
+\emph{highfreq} comparison above uses each side's own appropriate burn
+instead.) Isolating \emph{lofaronly} entirely and switching the noise model
+on/off reproduces the same reassignment degeneracy on a smaller scale: with
+no DM GP, \emph{lofaronly}'s corrected/uncorrected red-noise posteriors are
+both well-constrained but completely disjoint ($\gamma\approx4.5$--$5$ vs
+$\gamma\approx2.5$); adding a DM GP leaves corrected's red noise unchanged
+(its DM GP rails to zero) while uncorrected's collapses to unconstrained
+and its DM GP absorbs a signal with nearly the same spectral index the
+RN-only fit had assigned to red noise. The same pattern recurs in the
+three-way \emph{rnonly} split among the three \emph{uncorrected} station
+sets: three mutually exclusive, well-determined peaks tracking which
+frequency band dominates --- not what genuine achromatic noise should look
+like.

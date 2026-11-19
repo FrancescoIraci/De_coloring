@@ -1,0 +1,15 @@
+FORMAT 1
+#INCLUDE lofar/J1744-1134_LOFAR.150.tim
+INCLUDE lofar/J1744-1134_ToAs_pta_dmo_no_doubles.tim
+#INCLUDE lofar/no_nesw_obs_J1744-1134.tim
+INCLUDE epta/tims/EFF.P200.1380.tim
+INCLUDE epta/tims/EFF.P217.1380.tim
+INCLUDE epta/tims/EFF.S110.2487.tim
+INCLUDE epta/tims/EFF.S60.4857.tim
+INCLUDE epta/tims/GM_GWB_1460_200_b0_post36.tim
+INCLUDE epta/tims/GM_GWB_500_200_b1_post36.tim
+INCLUDE epta/tims/JBO.ROACH.1520.tim
+INCLUDE epta/tims/LEAP.1396.tim
+INCLUDE epta/tims/NRT.NUPPI.1484.tim
+INCLUDE epta/tims/NRT.NUPPI.2539.tim
+INCLUDE epta/tims/WSRT.P2.1380.tim

@@ -1,0 +1,8 @@
+FORMAT 1
+INCLUDE lofar/J1640+2224_ToAs_no_doubles.tim
+INCLUDE epta/tims/EFF.P200.1380.tim
+INCLUDE epta/tims/EFF.P217.1380.tim
+INCLUDE epta/tims/EFF.S110.2487.tim
+INCLUDE epta/tims/JBO.ROACH.1520.tim
+INCLUDE epta/tims/LEAP.1396.tim
+INCLUDE epta/tims/NRT.NUPPI.1484.tim
