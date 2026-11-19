@@ -74,8 +74,12 @@ DATASET_STYLE = {
     "feathers_highfreq_uncorrected":  ("#56B4E9", "highfreq, uncorrected"),
     "feathers_lofaronly_corrected":   ("#009E73", "lofaronly, corrected"),
     "feathers_lofaronly_uncorrected": ("#CC79A7", "lofaronly, uncorrected"),
-    # Okabe-Ito has no hue left: wine from Paul Tol's (also colorblind-safe) muted set
-    "feathers_lofaronly_corrected_mjd57000-60000": ("#882255", "lofaronly, corrected, MJD 57000-60000"),
+    # MJD-cut variants: Okabe-Ito has no hue left, so darker tones from Paul
+    # Tol's (also colorblind-safe) muted set, each in its parent dataset's family
+    "feathers_combined_corrected_mjd57000-59300":  ("#882255", "combined, corrected, MJD 57000-59300"),
+    "feathers_highfreq_corrected_mjd57000-59300":  ("#332288", "highfreq, corrected, MJD 57000-59300"),
+    "feathers_lofaronly_corrected_mjd57000-59300": ("#117733", "lofaronly, corrected, MJD 57000-59300"),
+    "feathers_lofaronly_corrected_mjd57000-60000": ("#AA4499", "lofaronly, corrected, MJD 57000-60000"),
 }
 MODEL_STYLE = {"dmrn": ("-", "DM+RN"), "rnonly": ("--", "RN only")}
 FALLBACK_COLORS = ["#000000", "#7F7F7F", "#F0E442"]
