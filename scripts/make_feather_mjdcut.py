@@ -91,7 +91,8 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--pulsar", default="J1012+5307")
     ap.add_argument("--dataset", default="lofaronly_corrected",
-                    choices=["lofaronly_corrected", "highfreq_corrected", "combined_corrected"],
+                    choices=["lofaronly_corrected", "highfreq_corrected", "combined_corrected",
+                             "lofaronly_uncorrected", "highfreq_uncorrected", "combined_uncorrected"],
                     help="which matched dataset to cut (its par/tim under dm_correction_out/)")
     ap.add_argument("--mjd", nargs=2, type=float, default=[57000.0, 60000.0])
     ap.add_argument("--maxobs", type=int, default=30000)
@@ -107,6 +108,12 @@ def main():
                                f"matched_correction/{args.pulsar}_highfreq_corrected.tim"),
         "combined_corrected": ("nodoubles_postfit.forfeather.combined.clean.par",
                                f"matched_correction/{args.pulsar}_dmcorrected.tim"),
+        "lofaronly_uncorrected": ("nodoubles_postfit.lofaronly_uncorrected.clean.par",
+                                  f"matched_correction/{args.pulsar}_lofaronly_original.tim"),
+        "highfreq_uncorrected": ("nodoubles_postfit.highfreq_uncorrected.clean.par",
+                                 f"matched_correction/{args.pulsar}_highfreq_original.tim"),
+        "combined_uncorrected": ("nodoubles_postfit.matched_full.refit.par",
+                                 "nodoubles_postfit_matched_full.tim"),
     }
     par_name, tim_name = sources[args.dataset]
     par, tim = os.path.join(work, par_name), os.path.join(work, tim_name)

@@ -79,6 +79,9 @@ DATASET_STYLE = {
     "feathers_combined_corrected_mjd57000-59300":  ("#882255", "combined, corrected, MJD 57000-59300"),
     "feathers_highfreq_corrected_mjd57000-59300":  ("#332288", "highfreq, corrected, MJD 57000-59300"),
     "feathers_lofaronly_corrected_mjd57000-59300": ("#117733", "lofaronly, corrected, MJD 57000-59300"),
+    "feathers_combined_uncorrected_mjd57000-59300":  ("#999933", "combined, uncorrected, MJD 57000-59300"),
+    "feathers_highfreq_uncorrected_mjd57000-59300":  ("#88CCEE", "highfreq, uncorrected, MJD 57000-59300"),
+    "feathers_lofaronly_uncorrected_mjd57000-59300": ("#CC6677", "lofaronly, uncorrected, MJD 57000-59300"),
     "feathers_lofaronly_corrected_mjd57000-60000": ("#AA4499", "lofaronly, corrected, MJD 57000-60000"),
 }
 MODEL_STYLE = {"dmrn": ("-", "DM+RN"), "rnonly": ("--", "RN only")}
